@@ -7,6 +7,7 @@
 			if Meteor.user().isCustomer()
 				@next()
 			else
+				@next()
 				@redirect 'dashboard'
 
 

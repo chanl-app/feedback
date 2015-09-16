@@ -23,12 +23,14 @@ Schemas.Reviews = new SimpleSchema
 	owner: 
 		type: String
 		regEx: SimpleSchema.RegEx.Id
+		autoform: omit: true
 		autoValue: ->
 			if @isInsert
 				Meteor.userId()
 
 	createdAt:
 		type: Date
+		autoform: omit: true
 		autoValue: ->
 			if @isInsert
 				new Date()
