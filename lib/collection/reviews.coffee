@@ -26,8 +26,11 @@ Schemas.Reviews = new SimpleSchema
 		autoform: omit: true
 		autoValue: ->
 			if @isInsert
-				Meteor.userId()
-
+				if Meteor.isClient
+					console.log @userId
+					@userId
+				else
+					console.log "bug #{@userId}"
 	createdAt:
 		type: Date
 		autoform: omit: true

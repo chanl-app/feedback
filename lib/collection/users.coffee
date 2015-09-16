@@ -21,6 +21,14 @@ Schemas.User = new SimpleSchema
     type: Boolean
     label: -> 'Verified'
 
+  auth:
+    type: [Object]
+    optional: true
+
+  "auth.$.apiKey":
+    type: String
+    optional: true
+    
   createdAt:
     type: Date
 
