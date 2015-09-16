@@ -9,8 +9,7 @@
 			else
 				@next()
 				@redirect 'dashboard'
-
-
+				
 	
 Router.map ->
 	@route "dashboard",

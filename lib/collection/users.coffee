@@ -28,7 +28,7 @@ Schemas.User = new SimpleSchema
   "auth.$.apiKey":
     type: String
     optional: true
-    
+
   createdAt:
     type: Date
 
@@ -61,6 +61,6 @@ Meteor.users.helpers
   isAdmin: ->
     @roles.indexOf('admin') > -1
   isCustomer: ->
-    @roles.indexOf('customer') == -1
+    @roles.indexOf('customer') == 0
   email: ->
     @emails[0].address
