@@ -1,5 +1,11 @@
 Router.map ->
 	@route "home",
-	    path: "/"
-	    layoutTemplate: "homeLayout"
+		path: "/"
+		onBeforeAction: ->
+			if Meteor.user()?.isCustomer()
+				@redirect 'dashboard'
+			else
+				@next()
+
+		layoutTemplate: "homeLayout"
     
