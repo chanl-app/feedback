@@ -1,3 +1,12 @@
+Schemas.UserSettings = new SimpleSchema
+  smsNotifications:
+    label: -> 'user settings'
+    type: Boolean
+    optional: true
+    autoValue: ->
+      if @isInsert
+        false
+
 Schemas.User = new SimpleSchema
   emails:
     type: [Object]
@@ -6,11 +15,11 @@ Schemas.User = new SimpleSchema
   "emails.$.address":
     type: String
     regEx: SimpleSchema.RegEx.Email
-    label: -> TAPi18n.__ 'email'
+    label: -> 'Email'
 
   "emails.$.verified":
     type: Boolean
-    label: -> TAPi18n.__ 'userEmailVerified'
+    label: -> 'Verified'
 
   createdAt:
     type: Date
@@ -19,9 +28,9 @@ Schemas.User = new SimpleSchema
     type: Schemas.UserProfile
     defaultValue: {}
 
-  phone:
-    type: Schemas.UserPhone
-    optional: true
+  # phone:
+  #   type: Schemas.UserPhone
+  #   optional: true
 
   services:
     type: Object
@@ -42,9 +51,8 @@ Meteor.users.helpers
   fullName: () ->
     (@profile.firstName || '')  + ' ' + (@profile.lastName || '')
   isAdmin: ->
-    # @roles.indexOf('admin') > -1
+    @roles.indexOf('admin') > -1
   isCustomer: ->
-    # @roles.indexOf('customer') == -1
-    true
+    @roles.indexOf('customer') == -1
   email: ->
     @emails[0].address
