@@ -35,7 +35,7 @@ Template.registerHelper 'reviewTableSettings', ->
 				'no date'
 	,
 		key: '_id'
-		label: null
+		label: ''
 		tmpl: Template.reviewActionCell
 		sortable: false
 
