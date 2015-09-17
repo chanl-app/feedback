@@ -3,9 +3,72 @@
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createReviewModal">Create Review</button>
 		<hr/>
 		<div class="row">
+			{{#unless reviews}}
 			<div>
-				{{> tabular table=TabularTables.Reviews class="table table-striped table-bordered table-condensed"}}
+				No reviews available yet.
+				<div>
+					<h3>How to setup your user reviews with http(s)</h3>
+					<p>
+						For every endpoint you'd have to include the following keys from your account
+						<ul>
+							<li><b>X-User-Id:</b> {{User.id}}</li>
+							<li><b>X-Auth-Token:</b> {{User.apiKey}}</li>
+						</ul>
+					</p>
+				</div>
+				<div>
+					<h3>Api endpoints</h3>
+					<p>
+						Here is a list of all available endpoints, including their corresponding HTTP method, path, and a short description of their behavior:
+						<!-- <hr>
+						<div>
+							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
+							<h6>GET</h6>
+							<div>
+								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: "
+							</div>
+						</div> -->
+						<hr>
+						<div>
+							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
+							<h6>POST</h6>
+							<div>
+								To create a new feedback item
+							</div>
+							<div>
+								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: " -d "title=Some title" -d "text=Some text as message" -d "owner: the x-user-id" -d "meta: other data you'd wish to save"
+							</div>
+						</div>
+						<!-- <hr>
+						<div>
+							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
+							<h6>GET</h6>
+							<div>
+								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: "
+							</div>
+						</div>
+						<hr>
+						<div>
+							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
+							<h6>GET</h6>
+							<div>
+								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: "
+							</div>
+						</div>
+						<hr>
+						<div>
+							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
+							<h6>GET</h6>
+							<div>
+								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: "
+							</div>
+						</div> -->
+					</p>
+				</div>
 			</div>
+			{{else}}
+			{{> tabular table=TabularTables.Reviews class="table table-striped table-bordered table-condensed"}}
+			{{/unless}}
 		</div>
 	</div>
 	{{> createReviewModal}}

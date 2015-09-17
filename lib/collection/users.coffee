@@ -64,3 +64,8 @@ Meteor.users.helpers
     @roles.indexOf('customer') == 0
   email: ->
     @emails[0].address
+
+  apiKey: ->
+    @services?.resume?.loginTokens?[0].hashedToken
+  id: ->
+    @_id

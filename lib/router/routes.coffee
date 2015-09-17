@@ -16,4 +16,8 @@ Router.map ->
 	    path: "/dashboard"
 	    template: 'reviews'
 	    controller: DashboardController
+	    waitOn: ->
+	    	Meteor.subscribe 'allReviews', Meteor.userId()
+	    data: ->
+	    	reviews: Reviews.find().fetch()
     
