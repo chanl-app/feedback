@@ -21,3 +21,7 @@ Template.reviewActionCell.events
 
 		$('#delItemModal').modal('toggle')
 		return
+
+Template.cellStarred.events
+	'click button.star': (e, t) ->
+		Reviews.update({_id: @_id}, { $set: {starred: !@starred}})

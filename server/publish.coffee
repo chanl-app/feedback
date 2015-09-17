@@ -5,7 +5,8 @@ Meteor.publish 'allReviews', (_id)->
 Meteor.publishComposite 'userReviews',
 	find: (tableName, ids, fields)->
 		@unblock()
-		return Reviews.find({owner: 'XMTejLRCXAwssk72n'}, {})
+		# return Reviews.find({owner: 'XMTejLRCXAwssk72n'}, {}, {sort: {createdAt: -1}})
+		return []
 	children: []
 
 Meteor.publish null, ()->

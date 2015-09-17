@@ -7,3 +7,11 @@
 <template name='cellCheckbox'>
 	<input type="checkbox">
 </template>
+<!-- Starred -->
+<template name='cellStarred'>
+	{{#if starred}}
+	<button class='fa fa-star star' style="background-color: transparent;border: none;"></button>
+	{{else}}
+	<button class='fa fa-star-o star' style="background-color: transparent;border: none;"></button>
+	{{/if}}
+</template>

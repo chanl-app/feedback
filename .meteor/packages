@@ -15,12 +15,14 @@ aldeed:collection2
 aldeed:simple-schema
 aldeed:tabular
 dburles:collection-helpers
+fortawesome:fontawesome
 iron:router
 # philip100:reviews
 meteorhacks:subs-manager
+meteorhacks:unblock
+mrt:moment
 nimble:restivus
 reywood:publish-composite
 template-styles
 twbs:bootstrap
 useraccounts:bootstrap
-meteorhacks:unblock
