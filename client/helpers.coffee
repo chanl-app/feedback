@@ -14,11 +14,6 @@ Template.registerHelper 'reviewTableSettings', ->
 		tmpl: Template.cellCheckbox
 		sortable: false
 	,
-		key: 'starred'
-		label: ''
-		tmpl: Template.cellStarred
-		sortable: false
-	,
 		key: 'title'
 		label: 'Title'
 		sortable: false
