@@ -4,6 +4,7 @@ Template.reviewActionCell.events
 			collection: 'Review'
 			data: Reviews.findOne @_id
 
+		Reviews.update {_id: @_id}, { $set: {viewed: true}}
 		Session.set 'viewItemData', data
 
 		$('#viewItemModal').modal('toggle')

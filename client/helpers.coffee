@@ -5,6 +5,9 @@ Template.registerHelper 'Config', ->
 	Config
 
 Template.registerHelper 'reviewTableSettings', ->
+	rowClass: (item)->
+		if !item.viewed
+			'warning'
 	fields: [
 		key: '_id'
 		label: ''

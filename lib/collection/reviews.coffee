@@ -33,6 +33,13 @@ Schemas.Reviews = new SimpleSchema
 		optional: true
 		label: 'Archived'
 		defaultValue: false
+
+	viewed:
+		type: Boolean
+		autoform: omit: true
+		optional: true
+		label: 'Viewed'
+		defaultValue: false
 		
 	owner: 
 		type: String
