@@ -30,7 +30,8 @@ Package.onUse(function(api) {
     ],'client');
 
   api.addFiles([
-    'lib/navbar.html'
+    'lib/navbar.html',
+    'lib/styles/main.less'
     ], 'client');
 });
 

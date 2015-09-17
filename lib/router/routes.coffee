@@ -38,3 +38,12 @@ Router.map ->
 			Meteor.subscribe 'allReviews', Meteor.userId()
 		data: ->
 			reviews: Reviews.find({archived: true}, {sort: {createdAt: -1}}).fetch()
+
+	@route 'profile',
+		path: '/profile'
+		template: 'profile'
+		controller: DashboardController
+		waitOn: ->
+
+		data: ->
+			
