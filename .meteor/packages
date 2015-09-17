@@ -9,15 +9,18 @@ coffeescript
 less
 accounts-base
 accounts-password
+alanning:roles
 aldeed:autoform
 aldeed:collection2
 aldeed:simple-schema
 aldeed:tabular
 dburles:collection-helpers
 iron:router
-useraccounts:bootstrap
-twbs:bootstrap
 # philip100:reviews
-template-styles
+meteorhacks:subs-manager
 nimble:restivus
-alanning:roles
+reywood:publish-composite
+template-styles
+twbs:bootstrap
+useraccounts:bootstrap
+meteorhacks:unblock

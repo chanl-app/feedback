@@ -5,6 +5,7 @@ tableActionButtons =
 	tmpl: Meteor.isClient && Template.reviewActionCell
 	width: '200px'
 	orderable: false
+	searchable: false
 
 reviewActionCellButtons = [ tableActionButtons ]
 
@@ -17,9 +18,12 @@ TabularTables.Reviews = new Tabular.Table
 		width: '10px'
 		tmpl: Meteor.isClient && Template.cellCheckbox
 		orderable: false
+		searchable: false
 	,
 		data: 'starred'
 		width: '10px'
+		orderable: false
+		searchable: false
 	,
 		{data: 'title', title: 'Title'}
 	,	
@@ -27,3 +31,5 @@ TabularTables.Reviews = new Tabular.Table
 		title: 'Text'
 		orderable: false
 	], reviewActionCellButtons
+	selector: (userId)->
+		{owner: userId}

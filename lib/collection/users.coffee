@@ -67,5 +67,8 @@ Meteor.users.helpers
 
   apiKey: ->
     @services?.resume?.loginTokens?[0].hashedToken
+
+  username: ->
+    @emails[0].address
   id: ->
     @_id
