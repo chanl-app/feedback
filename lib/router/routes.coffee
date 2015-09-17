@@ -19,5 +19,5 @@ Router.map ->
 	    waitOn: ->
 	    	Meteor.subscribe 'allReviews', Meteor.userId()
 	    data: ->
-	    	reviews: Reviews.find().fetch()
+	    	reviews: Reviews.find({}, {sort: {createdAt: -1}}).fetch()
     

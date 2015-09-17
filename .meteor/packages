@@ -16,6 +16,7 @@ aldeed:simple-schema
 aldeed:tabular
 dburles:collection-helpers
 fortawesome:fontawesome
+gwendall:body-events
 iron:router
 # philip100:reviews
 meteorhacks:subs-manager
@@ -26,3 +27,4 @@ reywood:publish-composite
 template-styles
 twbs:bootstrap
 useraccounts:bootstrap
+aslagle:reactive-table
