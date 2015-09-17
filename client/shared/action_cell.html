@@ -1,7 +1,16 @@
 <template name='reviewActionCell'>
-	<button type="button" class="btn btn-xs btn-default view" id="{{_id}}">View</button>
-	<button type="button" class="btn btn-xs btn-info edit" id="{{_id}}">Edit</button>
-	<button type="button" class="btn btn-xs btn-danger remove" id="{{_id}}">Remove / Archive</button>
+	<!-- <button type="button" class="btn btn-xs edit">
+		<i class="fa fa-edit" id="{{_id}}"></i> Edit
+	</button> -->
+	<button type="button" class="btn btn-xs btn-info view">
+	<i class="fa fa-eye" id="{{_id}}"></i> View
+	</button>
+	<button type="button" class="btn btn-xs btn-warning archive">	
+		<i class="fa fa-archive"></i> Archive
+	</button>
+	<button type="button" class="btn btn-xs btn-danger remove">
+		<i class="fa fa-remove" id="{{_id}}"></i> Remove
+	</button>
 </template>
 <!-- Checkbox -->
 <template name='cellCheckbox'>

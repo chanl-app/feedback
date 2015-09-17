@@ -24,13 +24,8 @@ Template.registerHelper 'reviewTableSettings', ->
 		label: 'Message'
 		sortable: false
 	,
-		key: '_id'
-		label: null
-		tmpl: Template.reviewActionCell
-		sortable: false
-	,
 		key: 'createdAt'
-		label: ''
+		label: 'Date'
 		sortable: false
 		sortDirection: -1
 		fn: (value, object)->
@@ -38,5 +33,10 @@ Template.registerHelper 'reviewTableSettings', ->
 				moment(value).format("MMM DD YY")
 			else
 				'no date'
+	,
+		key: '_id'
+		label: null
+		tmpl: Template.reviewActionCell
+		sortable: false
 
 	]
