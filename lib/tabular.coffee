@@ -18,6 +18,9 @@ TabularTables.Reviews = new Tabular.Table
 		tmpl: Meteor.isClient && Template.cellCheckbox
 		orderable: false
 	,
+		data: 'starred'
+		width: '10px'
+	,
 		{data: 'title', title: 'Title'}
 	,	
 		data: 'text'

@@ -20,6 +20,13 @@ Schemas.Reviews = new SimpleSchema
 		label: 'Meta data'
 		autoform: omit: true
 
+	starred:
+		type: Boolean
+		autoform: omit: true
+		optional: true
+		label: 'Starred'
+		defaultValue: false
+
 	owner: 
 		type: String
 		regEx: SimpleSchema.RegEx.Id
