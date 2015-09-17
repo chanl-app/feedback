@@ -19,7 +19,7 @@ Router.map ->
 		waitOn: ->
 			Meteor.subscribe 'allReviews', Meteor.userId()
 		data: ->
-			reviews: Reviews.find({}, {sort: {createdAt: -1}}).fetch()
+			reviews: Reviews.find({archived: {$in: [false, null, undefined]}}, {sort: {createdAt: -1}}).fetch()
 
 	@route "starred",
 		path: "/starred"
@@ -46,4 +46,3 @@ Router.map ->
 		waitOn: ->
 
 		data: ->
-			

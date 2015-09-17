@@ -3,10 +3,15 @@
 		<i class="fa fa-edit" id="{{_id}}"></i> Edit
 	</button> -->
 	<button type="button" class="btn btn-xs btn-info view">
-	<i class="fa fa-eye" id="{{_id}}"></i> View
+		<i class="fa fa-eye" id="{{_id}}"></i> View
 	</button>
 	<button type="button" class="btn btn-xs btn-warning archive">	
-		<i class="fa fa-archive"></i> Archive
+		<i class="fa fa-archive"></i> 
+		{{#if archived}}
+		Un-archive
+		{{else}}
+		Archive
+		{{/if}}
 	</button>
 	<button type="button" class="btn btn-xs btn-danger remove">
 		<i class="fa fa-remove" id="{{_id}}"></i> Remove

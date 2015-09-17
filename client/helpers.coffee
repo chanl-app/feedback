@@ -13,19 +13,23 @@ Template.registerHelper 'reviewTableSettings', ->
 		label: ''
 		tmpl: Template.cellCheckbox
 		sortable: false
+		headerClass: 'col-md-1'
 	,
 		key: 'title'
 		label: 'Title'
 		sortable: false
+		headerClass: 'title col-md-2'
 	,
 		key: 'text'
 		label: 'Message'
 		sortable: false
+		headerClass: 'text col-md-3'
 	,
 		key: 'createdAt'
 		label: 'Date'
 		sortable: false
 		sortDirection: -1
+		headerClass: 'col-md-2'
 		fn: (value, object)->
 			if value instanceof Date
 				moment(value).format("MMM DD YY")
@@ -36,5 +40,6 @@ Template.registerHelper 'reviewTableSettings', ->
 		label: ''
 		tmpl: Template.reviewActionCell
 		sortable: false
+		headerClass: 'col-md-4'
 
 	]
