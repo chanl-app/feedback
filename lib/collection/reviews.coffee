@@ -27,6 +27,13 @@ Schemas.Reviews = new SimpleSchema
 		label: 'Starred'
 		defaultValue: false
 
+	archived: 
+		type: Boolean
+		autoform: omit: true
+		optional: true
+		label: 'Archived'
+		defaultValue: false
+		
 	owner: 
 		type: String
 		regEx: SimpleSchema.RegEx.Id

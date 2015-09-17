@@ -22,6 +22,11 @@ Template.reviewActionCell.events
 		$('#delItemModal').modal('toggle')
 		return
 
+	'click button.archive': ->
+		Reviews.update {_id: @_id}, { $set: {archived: !@archived}}, (error, resp)->
+			if !error 
+				console.log "Item archived"
+
 Template.cellStarred.events
 	'click button.star': (e, t) ->
 		Reviews.update({_id: @_id}, { $set: {starred: !@starred}})
