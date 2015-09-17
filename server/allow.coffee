@@ -4,10 +4,10 @@ Reviews.allow
 		true
 	update: (userId, doc, fields, modifier) ->
 		# ...
-		true
+		doc.owner == userId
 	remove: (userId, doc) ->
 		# ...
-		true
+		doc.owner == userId
 	# fetch: ['owner'],
 	# transform: () ->
 	# 	# ...
