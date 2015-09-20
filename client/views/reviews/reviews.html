@@ -1,75 +1,66 @@
 <template name='reviews'>
 	<div>
 		<div class="row">
-			{{#unless reviews}}
-			<div>
-				No reviews available yet.
-				<div>
-					<h3>How to setup your user reviews with http(s)</h3>
-					<p>
-						For every endpoint you'd have to include the following keys from your account
-						<ul>
-							<li><b>X-User-Id:</b> {{User.id}}</li>
-							<li><b>X-Auth-Token:</b> {{User.apiKey}}</li>
-						</ul>
-					</p>
-				</div>
-				<div>
-					<h3>Api endpoints</h3>
-					<p>
-						Here is a list of all available endpoints, including their corresponding HTTP method, path, and a short description of their behavior:
-						<!-- <hr>
-						<div>
-							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
-							<h6>GET</h6>
-							<div>
-								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: "
-							</div>
-						</div> -->
-						<hr>
-						<div>
-							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
-							<h6>POST</h6>
-							<div>
-								To create a new feedback item
-							</div>
-							<div style="font-weight: bold;">
-								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: " -d "title=Some title" -d "text=Some text as message" -d "owner: the x-user-id" -d "meta: other data you'd wish to save"
-							</div>
-						</div>
-						<!-- <hr>
-						<div>
-							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
-							<h6>GET</h6>
-							<div>
-								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: "
-							</div>
-						</div>
-						<hr>
-						<div>
-							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
-							<h6>GET</h6>
-							<div>
-								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: "
-							</div>
-						</div>
-						<hr>
-						<div>
-							<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
-							<h6>GET</h6>
-							<div>
-								curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: "
-							</div>
-						</div> -->
-					</p>
-				</div>
-			</div>
-			{{else}}
 			{{> reactiveTable collection=reviews showNavigation='auto' settings=reviewTableSettings rowsPerPage=10 class="table table-hover"}}
+			{{#unless reviews}}
+			{{> contentFor region="aside" template="miniGuide"}}
+			{{else}}
 			{{/unless}}
 		</div>
 	</div>
 	{{> createReviewModal}}
 	{{> viewItemModal}}
 	{{> delItemModal}}
+</template>
+<!-- Mini guide -->
+<template name='miniGuide'>
+	{{> miniSetupGuide}}
+	{{> miniKeysPanel}}
+</template>
+<template name='noReviewData'>
+	oops there is no data here.
+</template>
+<template name='miniSetupGuide'>
+	<div class="my-panel black">
+		<div>
+			<h4>How to setup your user reviews with http(s)</h4>
+			<p>
+				For every endpoint you'd have to include the following keys from your account
+				<ul>
+					<li><b>X-User-Id:</b> {{User.id}}</li>
+					<li><b>X-Auth-Token:</b> {{User.apiKey}}</li>
+				</ul>
+			</p>
+		</div>
+		<div>
+			<h4>Api endpoints</h4>
+			<p>
+				Here is a list of all available endpoints, including their corresponding HTTP method, path, and a short description of their behavior:
+
+				<hr>
+				<div>
+					<h4>http://{{Config.domainName}}/api/v1/reviews</h4>
+					<h6>POST</h6>
+					<div>
+						To create a new feedback item
+					</div>
+					<div style="font-weight: bold;">
+						curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: " -d "title=Some title" -d "text=Some text as message" -d "owner: the x-user-id" -d "meta: other data you'd wish to save"
+					</div>
+				</div>
+			</p>
+		</div>
+	</div>
+</template>
+<!-- Mini keys -->
+<template name='miniKeysPanel'>
+	<div class="my-panel">
+		<h4>Api Credentials</h4>
+		<div>
+			User key:
+		</div>
+		<div>
+			Authentication key:
+		</div>
+	</div>
 </template>

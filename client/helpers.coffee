@@ -8,6 +8,7 @@ Template.registerHelper 'reviewTableSettings', ->
 	rowClass: (item)->
 		if !item.viewed
 			'warning'
+	noDataTmpl: Template.noReviewData
 	fields: [
 		key: '_id'
 		label: ''

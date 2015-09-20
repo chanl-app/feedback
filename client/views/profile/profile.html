@@ -1,0 +1,43 @@
+<template name='profile'>
+	<div>
+		<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+			<li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+			<li><a href="#profile" data-toggle="tab">Profile</a></li>
+			<li><a href="#api_access" data-toggle="tab">API Access</a></li>
+		</ul>
+		<div id="my-tab-content" class="tab-content">
+			<div class="tab-pane active" id="settings">
+				<h1>Account Settings</h1>
+				<div>
+					<div class="form-group">
+						<label class="control-label">Email</label>
+						<input type="text" class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="control-label">Current password</label>
+						<input type="text" class="form-control">
+					</div>
+					{{>quickForm collection="Meteor.users" doc=User id="update_email" type="update" fields="password,passwordConfirmation"}}
+					<!-- <div class="form-group">
+						<label class="control-label">New password</label>
+						<input type="text" class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="control-label">Repeat password</label>
+						<input type="text" class="form-control">
+					</div> -->
+				</div>
+			</div>
+			<div class="tab-pane" id="profile">
+				<h1>Account Profile</h1>
+				<div>
+					{{>quickForm collection="Meteor.users" doc=User id="update_email" type="update" fields="profile.firstName,profile.lastName,profile.country,profile.language"}}
+				</div>
+			</div>
+			<div class="tab-pane" id="api_access">
+				<h1>API Access</h1>
+				<p></p>
+			</div>
+		</div>
+	</div>
+</template>
