@@ -8,6 +8,10 @@ Schemas.UserSettings = new SimpleSchema
         false
 
 Schemas.User = new SimpleSchema
+  username:
+    type: String,
+    label: "Username" 
+
   emails:
     type: [Object]
     optional: true
@@ -24,17 +28,32 @@ Schemas.User = new SimpleSchema
   auth:
     type: [Object]
     optional: true
+    autoform: omit: true
 
   "auth.$.apiKey":
     type: String
     optional: true
+    autoform: omit: true
 
   createdAt:
     type: Date
+    autoform: omit: true
 
   profile:
     type: Schemas.UserProfile
     defaultValue: {}
+
+  password:
+      type: String,
+      label: "Password"
+      min: 6
+  passwordConfirmation:
+    type: String,
+    min: 6
+    label: "Password confirmation"
+    custom: () ->
+      if @value != @field('password').value
+        return "passwordMissmatch"
 
   # phone:
   #   type: Schemas.UserPhone
@@ -44,11 +63,13 @@ Schemas.User = new SimpleSchema
     type: Object
     optional: true
     blackbox: true
+    autoform: omit: true
 
   roles:
     type: [String]
     blackbox: true
     optional: true
+    autoform: omit: true
 
   settings:
     type: Schemas.UserSettings

@@ -16,6 +16,11 @@ Router.map ->
 		path: "/dashboard"
 		template: 'reviews'
 		controller: DashboardController
+		action: ->
+			@render 'PostAside', {to: 'aside'}
+			@render()
+		# yieldRegions:
+		# 	'MyAside': {to: 'aside'}			
 		waitOn: ->
 			Meteor.subscribe 'allReviews', Meteor.userId()
 		data: ->
