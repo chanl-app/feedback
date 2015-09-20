@@ -55,9 +55,9 @@ Schemas.User = new SimpleSchema
       if @value != @field('password').value
         return "passwordMissmatch"
 
-  # phone:
-  #   type: Schemas.UserPhone
-  #   optional: true
+  phone:
+    type: Schemas.UserPhone
+    optional: true
 
   services:
     type: Object
