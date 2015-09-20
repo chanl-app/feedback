@@ -31,7 +31,8 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'lib/navbar.html',
-    'lib/styles/main.less'
+    'lib/styles/main.less',
+    'lib/styles/form.less'
     ], 'client');
 });
 
