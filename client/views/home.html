@@ -1,9 +1,13 @@
 <template name='home'>
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4" >
-			<div class="login-container">
+		{{> signUpForms}}
+	</div>
+</template>
+<template name='signUpForms'>
+	<div id="particles-js"></div>
+	<div class="col-md-4 col-md-offset-4" >
+		<div class="login-container">
 			{{> atForm}}
-			</div>
 		</div>
 	</div>
 </template>
