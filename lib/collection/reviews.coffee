@@ -52,6 +52,12 @@ Schemas.Reviews = new SimpleSchema
 					@userId
 				else
 					console.log "bug #{@userId}"
+
+	appId:
+		type: String
+		regEx: SimpleSchema.RegEx.Id
+		autoform: omit: true
+		
 	createdAt:
 		type: Date
 		autoform: omit: true
