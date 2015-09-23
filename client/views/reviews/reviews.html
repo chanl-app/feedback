@@ -15,7 +15,6 @@
 <!-- Mini guide -->
 <template name='miniGuide'>
 	{{> miniSetupGuide}}
-	{{> miniKeysPanel}}
 </template>
 <template name='noReviewData'>
 	oops there is no data here.
@@ -27,8 +26,7 @@
 			<p>
 				For every endpoint you'd have to include the following keys from your account
 				<ul>
-					<li><b>X-User-Id:</b> {{User.id}}</li>
-					<li><b>X-Auth-Token:</b> {{User.apiKey}}</li>
+					<li><b>X-App-Id:</b> Your generated app id</li>
 				</ul>
 			</p>
 		</div>
@@ -45,7 +43,7 @@
 						To create a new feedback item
 					</div>
 					<div style="font-weight: bold;">
-						curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-Auth-Token: sd" -H "X-User-Id: " -d "title=Some title" -d "text=Some text as message" -d "owner: the x-user-id" -d "meta: other data you'd wish to save"
+						curl -X GET http://{{Config.domainName}}/api/v1/reviews -H "X-App-Id: YOUR APP API KEY" -d "title=Some title" -d "text=Some text as message" -d "owner: the x-user-id" -d "meta: other data you'd wish to save"
 					</div>
 				</div>
 			</p>

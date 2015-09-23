@@ -31,7 +31,7 @@ Router.map ->
 		template: 'reviews'
 		controller: DashboardController
 		waitOn: ->
-			Meteor.subscribe 'allReviews', Meteor.userId()
+			# Meteor.subscribe 'allReviews', Meteor.userId()
 		data: ->
 			reviews: Reviews.find({starred: true}, {sort: {createdAt: -1}}).fetch()
 

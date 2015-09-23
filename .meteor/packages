@@ -11,6 +11,7 @@ accounts-base
 accounts-password
 alanning:roles
 aldeed:autoform
+aldeed:autoform-select2
 aldeed:collection2
 aldeed:simple-schema
 aldeed:tabular
@@ -29,3 +30,4 @@ template-styles
 useraccounts:bootstrap
 aslagle:reactive-table
 particle-ground
+zimme:select2-bootstrap3-css

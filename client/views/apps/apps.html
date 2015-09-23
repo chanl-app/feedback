@@ -1,0 +1,28 @@
+<template name='userApps'>
+	<div>
+		<a href="{{pathFor 'newUserApp'}}" class="btn btn-primary btn-xs pull-right">New app</a>
+	</div>
+	{{#if apps}}
+	<div>
+		<h2>Your apps</h2>
+	</div>
+	<hr>
+	{{#each apps}}
+	<div>
+		<h4>{{name}}</h4>
+		<p>{{category}}</p>
+		<hr>
+	</div>
+	{{/each}}
+	{{else}}
+	<div>
+		No App configured.
+		<div>
+			<a href="{{pathFor 'newUserApp'}}" class="btn btn-primary">Add app</a>
+		</div>
+	</div>
+	{{/if}}
+</template>
+<template name='newUserApp'>
+	{{> quickForm collection='UserApps' id='insertUserApp' type='insert'}}
+</template>

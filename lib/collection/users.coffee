@@ -11,6 +11,7 @@ Schemas.User = new SimpleSchema
   username:
     type: String,
     label: "Username" 
+    optional: true
 
   emails:
     type: [Object]
@@ -42,18 +43,6 @@ Schemas.User = new SimpleSchema
   profile:
     type: Schemas.UserProfile
     defaultValue: {}
-
-  password:
-      type: String,
-      label: "Password"
-      min: 6
-  passwordConfirmation:
-    type: String,
-    min: 6
-    label: "Password confirmation"
-    custom: () ->
-      if @value != @field('password').value
-        return "passwordMissmatch"
 
   phone:
     type: Schemas.UserPhone

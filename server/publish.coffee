@@ -5,9 +5,16 @@ Meteor.publish 'allReviews', (_id)->
 Meteor.publishComposite 'userReviews',
 	find: (tableName, ids, fields)->
 		@unblock()
-		# return Reviews.find({owner: 'XMTejLRCXAwssk72n'}, {}, {sort: {createdAt: -1}})
 		return []
 	children: []
 
-Meteor.publish null, ()->
-	return Meteor.users.find({_id: this.userId}, {fields: {"services.resume.loginTokens": 1}});
+Meteor.publishComposite null,
+	find: ->
+		Meteor.users.find({_id: @userId}, {fields: {"services.resume.loginTokens": 1}})
+	
+	children: [
+		{ 
+			find: (user) ->
+				UserApps.find owner: user._id
+		}
+	]
