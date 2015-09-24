@@ -45,12 +45,14 @@ Template.changeAccountPasswordForm.events
 		confirmNewPassword = changeAccountPasswordForm.find('#confirmNewPassword').val()
 
 		if isNotEmpty(currentPassword) and isNotEmpty(newPassword) and isNotEmpty(confirmNewPassword) and areValidPasswords(newPassword, confirmNewPassword)
-			Accounts.changePassword(currentPassword, newPassword, (err, resp)->
+			Accounts.changePassword currentPassword, newPassword, (err, resp)->
 				if err
-					console.log err
 					message = "There was an error logging in: <strong>#{err.reason}</strong>"
+					changeAccountPasswordForm.find('#form-messages').html(message)
+
 				else
-					console.log "password changed"
-			)
-		else
-			false
+					changeAccountPasswordForm.find('#form-messages').html("password changed")
+
+		changeAccountPasswordForm.find('#currentPassword').val null
+		changeAccountPasswordForm.find('#newPassword').val null
+		changeAccountPasswordForm.find('#confirmNewPassword').val null
