@@ -24,7 +24,7 @@ Router.map ->
 		waitOn: ->
 			Meteor.subscribe 'allReviews', Meteor.userId()
 		data: ->
-			appId = Meteor.user().app._id;
+			appId = Meteor.user()?.app?._id;
 			reviews: Reviews.find({appId: appId, archived: {$in: [false, null, undefined]}}, {sort: {createdAt: -1}}).fetch()
 
 	@route "starred",
@@ -34,7 +34,7 @@ Router.map ->
 		waitOn: ->
 			Meteor.subscribe 'allReviews', Meteor.userId()
 		data: ->
-			appId = Meteor.user().app._id;
+			appId = Meteor.user()?.app?._id;
 			reviews: Reviews.find({appId: appId, starred: true}, {sort: {createdAt: -1}}).fetch()
 
 	@route "archive",
@@ -44,7 +44,7 @@ Router.map ->
 		waitOn: ->
 			Meteor.subscribe 'allReviews', Meteor.userId()
 		data: ->
-			appId = Meteor.user().app._id;
+			appId = Meteor.user()?.app?._id;
 			reviews: Reviews.find({appId: appId, archived: true}, {sort: {createdAt: -1}}).fetch()
 
 	@route 'profile',

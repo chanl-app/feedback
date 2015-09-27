@@ -10,7 +10,7 @@ Config.notification =
 		new PNotify 
 			text: text
 			delay: 1500
-			type: "success"
+			type: "alert"
 			addclass: "stack-bottomright"
 			stack: @stack_bottomright
 

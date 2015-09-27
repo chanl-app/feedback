@@ -96,7 +96,10 @@ Meteor.users.helpers
     @emails[0].address
 
   activeApp: ->
-    @app
+    if @app?
+      @app
+    else
+      false
 
   id: ->
     @_id

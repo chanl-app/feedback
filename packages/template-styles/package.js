@@ -36,9 +36,14 @@ Package.onUse(function(api) {
     'public/MyIcons/flaticon.ttf',
     'public/MyIcons/flaticon.woff'    
     ], 'client');
+
+  api.addFiles([
+    'lib/helpers.coffee'
+  ], 'client');
   
   api.addFiles([
     'lib/navbar.html',
+    'lib/navbar.coffee',
     'lib/styles/_variables.less',
     'lib/styles/main.less',
     'lib/styles/form.less'
