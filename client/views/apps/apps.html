@@ -6,15 +6,31 @@
 	<div>
 		<h2>Your apps</h2>
 	</div>
-	<hr>
-	{{#each apps}}
-	<div>
-		<h4>{{name}}</h4>
-		<p>{{category}}</p>
-		<h5>{{_id}}</h5>
-		<hr>
-	</div>
-	{{/each}}
+	<ul class="user-apps">
+		{{#each apps}}
+		<li>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="pull-left">
+						<span><h4 style="display: inline-block;">App Name:</h4> </span> 
+						<span>{{name}}</span>
+					</div>
+					<div class="pull-right">
+						<h4 style="display: inline-block;">ApiKey:</h4> <span>{{_id}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h6 style="margin: 0px; margin-bottom: 8px; text-transform: uppercase;">Description</h6>
+					<p class="description">
+						{{Truncate description 180}}
+					</p>
+				</div>
+			</div>
+		</li>
+		{{/each}}
+	</ul>
 	{{else}}
 	<div>
 		No App configured.

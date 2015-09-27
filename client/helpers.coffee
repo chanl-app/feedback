@@ -1,3 +1,7 @@
+Template.registerHelper 'Truncate', (text, length)->
+	console.log _.str.prune text, length
+	_.str.prune text, length
+
 Template.registerHelper 'User', ->
 	Meteor.user()
 
