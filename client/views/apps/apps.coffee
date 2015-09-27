@@ -4,4 +4,4 @@ Template.userApps.events
 			if error 
 				console.log "sorry something went wrong"
 			else
-				console.log "Active app changed"
+				Config.notification.success "Active app changed" 
