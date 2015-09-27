@@ -26,8 +26,8 @@ mrt:moment
 nimble:restivus
 reywood:publish-composite
 twbs:bootstrap
-template-styles
 useraccounts:bootstrap
+template-styles
 aslagle:reactive-table
 particle-ground
 zimme:select2-bootstrap3-css

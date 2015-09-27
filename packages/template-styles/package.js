@@ -30,7 +30,16 @@ Package.onUse(function(api) {
     ],'client');
 
   api.addFiles([
+    'public/MyIcons/flaticon.css',
+    'public/MyIcons/flaticon.eot',
+    'public/MyIcons/flaticon.svg',
+    'public/MyIcons/flaticon.ttf',
+    'public/MyIcons/flaticon.woff'    
+    ], 'client');
+  
+  api.addFiles([
     'lib/navbar.html',
+    'lib/styles/_variables.less',
     'lib/styles/main.less',
     'lib/styles/form.less'
     ], 'client');
