@@ -10,7 +10,7 @@ Meteor.publishComposite 'userReviews',
 
 Meteor.publishComposite null,
 	find: ->
-		Meteor.users.find({_id: @userId}, {fields: {"services.resume.loginTokens": 1}})
+		Meteor.users.find({_id: @userId}, {fields: {"services.resume.loginTokens": 1, app: 1}})
 	
 	children: [
 		{ 

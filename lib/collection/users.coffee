@@ -54,6 +54,20 @@ Schemas.User = new SimpleSchema
     blackbox: true
     autoform: omit: true
 
+  "app":
+    type: Object
+    optional: true
+    autoform: omit: true
+    blackbox: true
+
+  "app.$._id":
+    type: String
+    optional: false
+
+  "app.$.name":
+    type: String
+    optional: false
+
   roles:
     type: [String]
     blackbox: true
@@ -80,5 +94,9 @@ Meteor.users.helpers
 
   username: ->
     @emails[0].address
+
+  activeApp: ->
+    @app
+
   id: ->
     @_id

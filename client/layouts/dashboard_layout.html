@@ -2,6 +2,7 @@
 	<div class="container-fluid">
 		<div class="row"> 
 			{{> navbar}}
+			{{> activeApp}}
 			<div class="container-fluid">
 				<div class="row">
 					<div class="column"> 
@@ -37,6 +38,16 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name='activeApp'>
+	<div class="sub-nav">
+		<div class='container'>
+			<div class="row">
+			<b>Active app >> {{#if User.activeApp}} {{User.activeApp.name}}{{else}}No active app set{{/if}}</b>
 			</div>
 		</div>
 	</div>

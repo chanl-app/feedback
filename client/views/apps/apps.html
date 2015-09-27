@@ -8,12 +8,12 @@
 	</div>
 	<ul class="user-apps">
 		{{#each apps}}
-		<li>
+		<li class="user-app {{#if $eq User.activeApp._id _id}}active{{/if}}">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="pull-left">
 						<span><h4 style="display: inline-block;">App Name:</h4> </span> 
-						<span>{{name}}</span>
+						<span>{{name}}</span>							
 					</div>
 					<div class="pull-right">
 						<h4 style="display: inline-block;">ApiKey:</h4> <span>{{_id}}</span>
