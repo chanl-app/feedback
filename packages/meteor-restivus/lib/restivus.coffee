@@ -11,10 +11,11 @@ class @Restivus
       auth:
         token: 'services.resume.loginTokens.hashedToken'
         user: ->
-          if @request.headers['x-auth-token']
-            token = Accounts._hashLoginToken @request.headers['x-auth-token']
-          userId: @request.headers['x-user-id']
-          token: token
+          # if @request.headers['x-auth-token']
+          #   token = Accounts._hashLoginToken @request.headers['x-auth-token']
+          # token: token
+          # userId: @request.headers['x-user-id']
+          appId: @request.headers['x-api-key']
       onLoggedIn: -> {}
       onLoggedOut: -> {}
       defaultHeaders:
@@ -30,7 +31,7 @@ class @Restivus
         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
       if @_config.useDefaultAuth
-        corsHeaders['Access-Control-Allow-Headers'] += ', X-User-Id, X-Auth-Token'
+        corsHeaders['Access-Control-Allow-Headers'] += ', X-Api-Key'
 
       # Set default header to enable CORS if configured
       _.extend @_config.defaultHeaders, corsHeaders
@@ -287,13 +288,26 @@ class @Restivus
 
         # Get the authenticated user
         # TODO: Consider returning the user in Auth.loginWithPassword(), instead of fetching it again here
-        if auth.userId and auth.authToken
+         # if auth.userId and auth.authToken
+         #  searchQuery = {}
+         #  searchQuery[self._config.auth.token] = Accounts._hashLoginToken auth.authToken
+         #  @user = Meteor.users.findOne
+         #    '_id': auth.userId
+         #    searchQuery
+         #  @userId = @user?._id
+
+        if auth.appId #and auth.authToken
           searchQuery = {}
           searchQuery[self._config.auth.token] = Accounts._hashLoginToken auth.authToken
-          @user = Meteor.users.findOne
-            '_id': auth.userId
-            searchQuery
+
+          @app = UserApps.findOne({_id: auth.appId})
+          @user = Meteor.users.findOne({_id: @app.owner})
+
+          # @user = Meteor.users.findOne
+          #   '_id': auth.userId
+          #   searchQuery
           @userId = @user?._id
+          @appId = @app?._id
 
         # TODO: Add any return data to response as data.extra
         # Call the login hook with the authenticated user attached

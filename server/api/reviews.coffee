@@ -24,10 +24,8 @@ Api.addCollection Reviews,
 				# check @bodyParams, {title: String, text: String}
 				Reviews.insert @bodyParams, (err, resp)->
 					if err
-						console.log err
-						newFuture.return {status: 'failed', message: 'Internal server contact admin'}
+						newFuture.return {statusCode: 400, status: 'failed', error: err.message, message: 'Internal server contact admin'}
 
-					# console.log "here"
 					if resp
 						newFuture.return {status: 'success', data: Reviews.findOne resp, message: 'created object successfully'}
 

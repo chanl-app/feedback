@@ -50,8 +50,8 @@ Schemas.Reviews = new SimpleSchema
 				if Meteor.isClient
 					console.log @userId
 					@userId
-				else
-					console.log "bug #{@userId}"
+				# else
+				# 	console.log "#{@userId}"
 
 	appId:
 		type: String

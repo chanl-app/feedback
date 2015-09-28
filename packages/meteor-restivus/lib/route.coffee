@@ -150,7 +150,7 @@ class @Route
         body: {status: 'error', message: 'You do not have permission to do this.'}
     else
       statusCode: 401
-      body: {status: 'error', message: 'You must be logged in to do this.'}
+      body: {status: 'error', message: 'Please provide valid app key.'}
 
 
   ###
@@ -179,20 +179,41 @@ class @Route
     # Get auth info
     auth = @api._config.auth.user.call(endpointContext)
 
+    # # Get the user from the database
+    # if auth?.userId and auth?.token and not auth?.user
+    #   userSelector = {}
+    #   userSelector._id = auth.userId
+    #   userSelector[@api._config.auth.token] = auth.token
+    #   auth.user = Meteor.users.findOne userSelector
+
+    # # Attach the user and their ID to the context if the authentication was successful
+    # if auth?.user
+    #   endpointContext.user = auth.user
+    #   endpointContext.userId = auth.user._id
+    #   true
+    # else false
     # Get the user from the database
-    if auth?.userId and auth?.token and not auth?.user
-      userSelector = {}
-      userSelector._id = auth.userId
-      userSelector[@api._config.auth.token] = auth.token
-      auth.user = Meteor.users.findOne userSelector
+    if auth?.appId # and auth?.token and not auth?.user
+      # userSelector = {}
+      # userSelector._id = auth.userId
+      # userSelector[@api._config.auth.token] = auth.token
+      auth.app = UserApps.findOne({_id: auth.appId})
+      if auth.app?
+        auth.user = Meteor.users.findOne({_id: auth.app.owner})
 
     # Attach the user and their ID to the context if the authentication was successful
+    # if auth?.user
+    #   endpointContext.user = auth.user
+    #   endpointContext.userId = auth.user._id
+    #   true
+    # else false
     if auth?.user
       endpointContext.user = auth.user
       endpointContext.userId = auth.user._id
+      endpointContext.app = auth.app
+      endpointContext.appId = auth.app._id
       true
     else false
-
 
   ###
     Authenticate the user role if required
